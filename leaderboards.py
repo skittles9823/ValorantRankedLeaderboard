@@ -7,7 +7,7 @@ json_data = r.json()
 
 def getUser(name):
     for s in range(len(json_data['data'])):
-        if json_data['data'][s]['GameName'] == name:
+        if json_data['data'][s]['GameName'].lower() == name.lower():
             return (str(json_data['data'][s]['LeaderboardRank']) + ". " + json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine'] + " | RR: " + str(json_data['data'][s]['RankedRating']) +" | Wins: " + str(json_data['data'][s]['NumberOfWins']))
 
 print("")
