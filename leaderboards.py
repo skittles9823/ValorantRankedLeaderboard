@@ -15,7 +15,7 @@ print("If you want to see the whole leaderboard list -> l\n"
       "If you want to search a specific user -> u"
     )
 
-check = input("[l/u]: ")
+check = input("[l/u]: ").lower()
 if check == "u":
     name = input("Enter user name without tag: ")
     print(getUser(name))
