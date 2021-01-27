@@ -1,6 +1,6 @@
 import requests
-   
-user_in = input("Enter a region code: ")
+
+user_in = input("Enter a region code (eu, na, ko, ap): ")
 region = user_in.lower()
 r = requests.get(f"https://api.henrikdev.xyz/valorant/v1/leaderboard/{region}")
 json_data = r.json()
