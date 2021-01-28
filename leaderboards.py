@@ -1,4 +1,5 @@
 import requests
+import sys
 
 user_in = input("Enter a region code (eu, na, ko, ap): ")
 region = user_in.lower()
@@ -10,16 +11,30 @@ def getUser(name):
         if name.lower() in json_data['data'][s]['GameName'].lower():
             return (str(json_data['data'][s]['LeaderboardRank']) + ". " + json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine'] + " | RR: " + str(json_data['data'][s]['RankedRating']) +" | Wins: " + str(json_data['data'][s]['NumberOfWins']))
 
-print("")
-print("If you want to see the whole leaderboard list -> l\n"
-      "If you want to search a specific user -> u"
-    )
-
-check = input("[l/u]: ").lower()
-if check == "u":
-    name = input("Enter user name without tag: ")
-    print(getUser(name))
-
-if check == "l":
+def listLeaderboard():
     for s in range(len(json_data['data'])):
         print(str(json_data['data'][s]['LeaderboardRank']) + ". " + json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine'] + " | RR: " + str(json_data['data'][s]['RankedRating']) +" | Wins: " + str(json_data['data'][s]['NumberOfWins']))
+
+def noCLI():
+    print("")
+    print("If you want to see the whole leaderboard list -> l\n"
+          "If you want to search a specific user -> u"
+        )
+
+    check = input("[l/u]: ").lower()
+    if check == "u":
+        name = input("Enter user name without tag: ")
+        print(getUser(name))
+
+    if check == "l":
+        listLeaderboard()
+
+if len(sys.argv) > 1:
+    if sys.argv[1] == "--list":
+        listLeaderboard()
+
+    if sys.argv[1] == "--search":
+        name = sys.argv[2]
+        print(getUser(name))
+else:
+    noCLI()
