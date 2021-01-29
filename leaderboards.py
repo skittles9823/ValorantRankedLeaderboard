@@ -6,6 +6,8 @@ region = user_in.lower()
 r = requests.get(f"https://api.henrikdev.xyz/valorant/v1/leaderboard/{region}")
 json_data = r.json()
 
+print("There are currently " + str(json_data['data'][-2]['LeaderboardRank']) + f" users in the Immortal+ leaderboards for {region}")
+
 def getUser(name):
     for s in range(len(json_data['data'])):
         if name.lower() in json_data['data'][s]['GameName'].lower():
