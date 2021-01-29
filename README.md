@@ -7,7 +7,7 @@
 List all users in the leaderboard:
 python3 leaderboards.py --list
 
-C:\Users\Skittles\Desktop> python3 leaderboards.py --list
+python3 leaderboards.py --list
 Enter a region code (eu, na, ko, ap): ap
 1. PPK#2626 | RR: 816 | Wins: 49
 2. KX MidnighT#dad | RR: 778 | Wins: 59
@@ -25,15 +25,24 @@ Enter a region code (eu, na, ko, ap): ap
 Search for specific users in the leaderboard:
 python3 leaderboards.py --search username
 
-C:\Users\Skittles\Desktop> python3 leaderboards.py --search ppk
+python3 leaderboards.py --search ppk
 Enter a region code (eu, na, ko, ap): ap
 1. PPK#2626 | RR: 816 | Wins: 49
+```
+```
+Search for a specific rank place in the leaderbord:
+python3 leaderboards.py --rank number
+
+python3 leaderboards.py --rank 500
+Enter a region code (eu, na, ko, ap): ap
+There are currently 4852 users in the Immortal+ leaderboards for ap
+500. DxE Yvesaur#Erica | RR: 261 | Wins: 58
 ```
 ```
 Run the script normally and follow the prompts:
 python3 leaderboards.py
 
-C:\Users\Skittles\Desktop> python3 leaderboards.py
+python3 leaderboards.py
 Enter a region code (eu, na, ko, ap): ap
 
 If you want to see the whole leaderboard list -> l
