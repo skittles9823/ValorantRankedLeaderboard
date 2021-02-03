@@ -39,6 +39,24 @@ There are currently 4852 users in the Immortal+ leaderboards for ap
 500. DxE Yvesaur#Erica | RR: 261 | Wins: 58
 ```
 ```
+List the top x players in the leaderboard:
+python3 leaderboards.py --top number
+
+python3 leaderboards.py --top 10
+Enter a region code (eu, na, kr, ap): ap
+There are currently 5934 users in the Immortal+ leaderboards for ap
+1. EXO Crunchy#sayuu | RR: 780 | Wins: 97
+2. EDG YeeeZ#EDG | RR: 776 | Wins: 71
+3. pl1xx#668 | RR: 748 | Wins: 60
+4. dizzyLife#OCE | RR: 720 | Wins: 67
+5. NG PTC#Odin | RR: 702 | Wins: 92
+6. NG JohnOlsen#black | RR: 691 | Wins: 98
+7. jmz#OCE | RR: 680 | Wins: 125
+8. SAIKO73#Py73 | RR: 664 | Wins: 61
+9. kZm#0422 | RR: 656 | Wins: 83
+10. IRIS Singurality#Levi | RR: 645 | Wins: 51
+```
+```
 Run the script normally and follow the prompts:
 python3 leaderboards.py
 
@@ -47,7 +65,9 @@ Enter a region code (eu, na, kr, ap): ap
 
 If you want to see the whole leaderboard list -> l
 If you want to search a specific user -> u
-[l/u]: u
+If you want to get the info for a specific rank number -> n
+If you want to list the top x players -> t
+[l/u/n/t]: u
 Enter user name without tag: ppk
 1. PPK#2626 | RR: 816 | Wins: 49
 ```
