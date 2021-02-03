@@ -12,7 +12,7 @@ print("There are currently " + str(json_data['data'][-2]['LeaderboardRank']) + f
 
 def getUser(name):
     for s in range(len(json_data['data'])):
-        if name.lower() in json_data['data'][s]['GameName'].lower():
+        if name.lower() in str(json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine']).lower():
             return (str(json_data['data'][s]['LeaderboardRank']) + ". " + json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine'] + " | RR: " + str(json_data['data'][s]['RankedRating']) +" | Wins: " + str(json_data['data'][s]['NumberOfWins']))
 
 
