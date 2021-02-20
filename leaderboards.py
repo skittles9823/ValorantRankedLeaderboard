@@ -6,32 +6,31 @@ region = user_in.lower()
 r = requests.get(f"https://api.henrikdev.xyz/valorant/v1/leaderboard/{region}")
 json_data = r.json()
 
-
-print("There are currently " + str(json_data['data'][-2]['LeaderboardRank']) + f" users in the Immortal+ leaderboards for {region}")
+print("There are currently " + str(json_data['data'][-2]['leaderboardRank']) + f" users in the Immortal+ leaderboards for {region}")
 
 
 def getUser(name):
     for s in range(len(json_data['data'])):
-        if name.lower() in str(json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine']).lower():
-            return (str(json_data['data'][s]['LeaderboardRank']) + ". " + json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine'] + " | RR: " + str(json_data['data'][s]['RankedRating']) +" | Wins: " + str(json_data['data'][s]['NumberOfWins']))
+        if name.lower() in str(json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine']).lower():
+            return (str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']))
 
 
 def getUserOfRank(rank):
     for s in range(len(json_data['data'])):
-        if str(rank) in str(json_data['data'][s]['LeaderboardRank']):
-            return (str(json_data['data'][s]['LeaderboardRank']) + ". " + json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine'] + " | RR: " + str(json_data['data'][s]['RankedRating']) +" | Wins: " + str(json_data['data'][s]['NumberOfWins']))
+        if str(rank) in str(json_data['data'][s]['leaderboardRank']):
+            return (str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']))
 
 
 def getTopX(topx):
     text = ""
     for s in range(topx):
-        text += str(json_data['data'][s]['LeaderboardRank']) + ". " + json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine'] + " | RR: " + str(json_data['data'][s]['RankedRating']) +" | Wins: " + str(json_data['data'][s]['NumberOfWins']) + "\n"
+        text += str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']) + "\n"
     return text[:-1]
 
 
 def listLeaderboard():
     for s in range(len(json_data['data'])):
-        print(str(json_data['data'][s]['LeaderboardRank']) + ". " + json_data['data'][s]['GameName'] + "#" + json_data['data'][s]['TagLine'] + " | RR: " + str(json_data['data'][s]['RankedRating']) +" | Wins: " + str(json_data['data'][s]['NumberOfWins']))
+        print(str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']))
     
 
 def noCLI():
