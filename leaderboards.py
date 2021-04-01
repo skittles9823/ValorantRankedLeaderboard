@@ -20,20 +20,27 @@ def getUser(name):
 def getUserOfRank(rank):
     for s in range(len(json_data['data'])):
         if str(rank) in str(json_data['data'][s]['leaderboardRank']):
-            return (str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']))
-
+            if not json_data['data'][s]['gameName'] and not json_data['data'][s]['tagLine']:
+                return (str(json_data['data'][s]['leaderboardRank']) + ". " + "Secret Agent" + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']))
+            else:
+                return (str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']))
 
 def getTopX(topx):
     text = ""
     for s in range(topx):
-        text += str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']) + "\n"
+        if not json_data['data'][s]['gameName'] and not json_data['data'][s]['tagLine']:
+            text += str(json_data['data'][s]['leaderboardRank']) + ". " + "Secret Agent" + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']) + "\n"
+        else:
+            text += str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']) + "\n"
     return text[:-1]
 
 
 def listLeaderboard():
     for s in range(len(json_data['data'])):
-        print(str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']))
-    
+        if not json_data['data'][s]['gameName'] and not json_data['data'][s]['tagLine']:
+            print(str(json_data['data'][s]['leaderboardRank']) + ". " + "Secret Agent" + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']))
+        else:
+            print(str(json_data['data'][s]['leaderboardRank']) + ". " + json_data['data'][s]['gameName'] + "#" + json_data['data'][s]['tagLine'] + " | RR: " + str(json_data['data'][s]['rankedRating']) +" | Wins: " + str(json_data['data'][s]['numberOfWins']))
 
 def noCLI():
     print("")
