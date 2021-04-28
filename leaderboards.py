@@ -6,8 +6,11 @@ region = user_in.lower()
 r = requests.get(f"https://api.henrikdev.xyz/valorant/v1/leaderboard/{region}")
 json_data = r.json()
 
-print("There are currently " + str(json_data['data'][-2]['leaderboardRank']) + f" users in the Immortal+ leaderboards for {region}")
-
+try:
+    print("There are currently " + str(json_data['data'][-2]['leaderboardRank']) + f" users in the Immortal+ leaderboards for {region}")
+except KeyError:
+    print(json_data['message'])
+    exit()
 
 def getUser(name):
     users = ""
