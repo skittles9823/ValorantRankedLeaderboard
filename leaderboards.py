@@ -7,10 +7,13 @@ r = requests.get(f"https://api.henrikdev.xyz/valorant/v1/leaderboard/{region}")
 json_data = r.json()
 
 try:
-    print("There are currently " + str(json_data['data'][-2]['leaderboardRank']) + f" users in the Immortal+ leaderboards for {region}")
+    if json_data['message']:
+        print(json_data['message'])
+        exit()
+    else:
+        pass
 except KeyError:
-    print(json_data['message'])
-    exit()
+    pass
 
 def getUser(name):
     users = ""
